@@ -1,14 +1,17 @@
-import { ConfigProvider } from '@antd';
-import zhCN from 'antd/locale/zh_CN';
+'use client';
 
-import { AntdProvider } from '#/UI/AntdProvider';
+import { ThemeProvider } from 'next-themes';
+
+import { SiteHeader } from '#/components/SiteHeader';
 import '#/styles/globals.css';
+import AntdConfigProvider from '#/components/antd/AntdConfigProvider';
 
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
-}) {
+  }) {
+  
 	return (
 		<html lang="zh">
 			<head />
@@ -20,9 +23,12 @@ export default function RootLayout({
 			/>
 			<link rel="icon" href="/favicon.ico" />
 			<body>
-				<ConfigProvider locale={zhCN}>
-					<AntdProvider>{children}</AntdProvider>
-				</ConfigProvider>
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <AntdConfigProvider>
+            <SiteHeader />
+            <main>{children}</main>
+					</AntdConfigProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

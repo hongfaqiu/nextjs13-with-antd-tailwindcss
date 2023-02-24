@@ -16,7 +16,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@antd": ["./UI/antd.tsx"],
+      "@antd": ["components/antd"],
+      "@antd/*": ["components/antd/*"],
       "#/*": ["./*"],
     },
     "plugins": [
