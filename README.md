@@ -10,6 +10,7 @@ This repository solved these problems, and you can use the template to start you
 - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 - Automatic import sorting with [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
 - Dark mode with [next-themes](https://github.com/pacocoursey/next-themes)
+- Icons from [Lucide](https://lucide.dev)
 
 ## Problems and solutions
 
@@ -26,5 +27,3 @@ Here are some problems and solutions I encountered when I started the project
 
 4. DatePicker component internationalization has not taken effect
     <https://github.com/ant-design/ant-design/issues/27276#issuecomment-1281799701>
-
-5. useLayoutEffect does nothing on the server

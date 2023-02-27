@@ -1,9 +1,8 @@
 import Link from 'next/link';
 
-import { GithubOutlined } from '@ant-design/icons';
-
 import { siteConfig } from '#/config/site-config';
 
+import Icons from './Icons';
 import { MainNav } from './MainNav';
 import ThemeToggle from './ThemeToggle';
 
@@ -18,8 +17,9 @@ export function SiteHeader() {
 							href={siteConfig.links.github}
 							target="_blank"
 							rel="noreferrer"
+							className="btn"
 						>
-							<GithubOutlined className="h-5 w-5" />
+							<Icons.Github className="h-5 w-5" />
 						</Link>
 						<ThemeToggle />
 					</nav>

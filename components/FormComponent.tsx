@@ -1,6 +1,5 @@
 'use client';
 
-import { PlusOutlined } from '@ant-design/icons';
 import {
 	Button,
 	Cascader,
@@ -15,6 +14,9 @@ import {
 	TreeSelect,
 	Upload,
 } from '@antd';
+import { Plus } from 'lucide-react';
+
+import Icons from './Icons';
 
 export default function FormComponent() {
 	return (
@@ -81,7 +83,7 @@ export default function FormComponent() {
 			<Form.Item label="Upload" valuePropName="fileList">
 				<Upload action="/upload.do" listType="picture-card">
 					<div>
-						<PlusOutlined />
+						<Icons.Plus />
 						<div style={{ marginTop: 8 }}>Upload</div>
 					</div>
 				</Upload>

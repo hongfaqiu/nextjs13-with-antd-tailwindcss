@@ -3,15 +3,14 @@
 import { ThemeProvider } from 'next-themes';
 
 import { SiteHeader } from '#/components/SiteHeader';
-import '#/styles/globals.css';
 import AntdConfigProvider from '#/components/antd/AntdConfigProvider';
+import '#/styles/globals.css';
 
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
-  }) {
-  
+}) {
 	return (
 		<html lang="zh">
 			<head />
@@ -23,10 +22,15 @@ export default function RootLayout({
 			/>
 			<link rel="icon" href="/favicon.ico" />
 			<body>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <AntdConfigProvider>
-            <SiteHeader />
-            <main>{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+					<AntdConfigProvider>
+						<SiteHeader />
+						<main>{children}</main>
 					</AntdConfigProvider>
 				</ThemeProvider>
 			</body>
