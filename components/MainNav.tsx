@@ -6,10 +6,11 @@ import { siteConfig } from '#/config/site-config';
 import { cn } from '#/utils/tailwind';
 
 import Icons from './Icons';
+import { Dropdown } from '@antd';
 
 export interface NavItem {
 	title: string;
-	href?: string;
+	href: string;
 	disabled?: boolean;
 	external?: boolean;
 }
@@ -45,7 +46,20 @@ export function MainNav({ items }: MainNavProps) {
 							),
 					)}
 				</nav>
-			) : null}
+      ) : null}
+      <Dropdown
+        menu={{
+          items: items?.map(item => ({
+            key: item.title,
+            label: (<Link href={item.href}>{item.title}</Link>)
+          }))
+        }}
+      >
+        <div className='btn md:hidden'>
+          <Icons.logo className="mr-2 h-4 w-4" />{" "}
+          <span className="font-bold">Menu</span>
+        </div>
+      </Dropdown>
 		</div>
 	);
 }

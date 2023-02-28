@@ -1,10 +1,10 @@
-'use client';
-
-import { ThemeProvider } from 'next-themes';
-
 import { SiteHeader } from '#/components/SiteHeader';
-import AntdConfigProvider from '#/components/antd/AntdConfigProvider';
 import '#/styles/globals.css';
+
+import 'antd/dist/reset.css';
+
+import Providers from './Provider';
+import Head from './head';
 
 export default function RootLayout({
 	children,
@@ -13,26 +13,17 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="zh">
-			<head />
-			<title>Using Ant-Design 5 with Next.js 13 and Tailwind CSS</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<meta
-				name="description"
-				content="Using Ant-Design 5 with Next.js 13 and Tailwind CSS"
-			/>
-			<link rel="icon" href="/favicon.ico" />
+			<Head />
 			<body>
-        <ThemeProvider
+        <Providers
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-					<AntdConfigProvider>
-						<SiteHeader />
-						<main>{children}</main>
-					</AntdConfigProvider>
-				</ThemeProvider>
+					<SiteHeader />
+					<main>{children}</main>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -14,7 +14,6 @@ import {
 	TreeSelect,
 	Upload,
 } from '@antd';
-import { Plus } from 'lucide-react';
 
 import Icons from './Icons';
 
@@ -83,8 +82,8 @@ export default function FormComponent() {
 			<Form.Item label="Upload" valuePropName="fileList">
 				<Upload action="/upload.do" listType="picture-card">
 					<div>
-						<Icons.Plus />
-						<div style={{ marginTop: 8 }}>Upload</div>
+						<Icons.Plus className='m-auto' />
+						<div className='mt-2'>Upload</div>
 					</div>
 				</Upload>
 			</Form.Item>

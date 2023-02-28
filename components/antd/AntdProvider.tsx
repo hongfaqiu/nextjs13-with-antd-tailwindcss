@@ -9,8 +9,6 @@ import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
-import 'antd/dist/reset.css';
-
 dayjs.locale('zh-cn');
 
 // suppress useLayoutEffect warnings when running outside a browser

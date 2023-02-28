@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Dropdown, MenuProps } from '@antd';
@@ -7,6 +9,7 @@ import Icons from './Icons';
 
 export default function ThemeToggle() {
 	const { setTheme, theme } = useTheme();
+
 	const onClick: MenuProps['onClick'] = ({ key }) => {
 		setTheme(key);
 	};
