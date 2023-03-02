@@ -3,14 +3,14 @@
 import React from 'react';
 
 import { Dropdown, MenuProps } from '@antd';
+import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 
 import Icons from './Icons';
-import { useTranslations } from 'next-intl';
 
 export default function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
-  const t = useTranslations('theme');
+	const { setTheme, theme } = useTheme();
+	const t = useTranslations('theme');
 
 	const onClick: MenuProps['onClick'] = ({ key }) => {
 		setTheme(key);

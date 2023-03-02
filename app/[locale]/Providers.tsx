@@ -10,18 +10,15 @@ import { ConfigProvider, theme } from '@/components/antd';
 import { defaultLocale, languages } from '@/i18n';
 
 export type ProviderProps = PropsWithChildren<{
-  locale: string;
-}>
+	locale: string;
+}>;
 
-export function AntdConfigProvider({
-  children,
-  locale,
-}: ProviderProps) {
-  const { theme: nowTheme } = useTheme();
+export function AntdConfigProvider({ children, locale }: ProviderProps) {
+	const { theme: nowTheme } = useTheme();
 
 	return (
-    <ConfigProvider
-      locale={(languages as any)[locale as any ?? defaultLocale].antd}
+		<ConfigProvider
+			locale={(languages as any)[(locale as any) ?? defaultLocale].antd}
 			theme={{
 				algorithm:
 					nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
@@ -33,29 +30,25 @@ export function AntdConfigProvider({
 }
 
 export default function Providers(props: ProviderProps) {
-  const [mounted, setMounted] = useState(false)
+	const [mounted, setMounted] = useState(false);
 
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+	// useEffect only runs on the client, so now we can safely show the UI
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
-  if (!mounted) {
-    return <AntdConfigProvider 
-      {...props}
-    />
-  }
+	if (!mounted) {
+		return <AntdConfigProvider {...props} />;
+	}
 
-  return (
-    <NextThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-			<AntdConfigProvider 
-        {...props}
-      />
+	return (
+		<NextThemeProvider
+			attribute="class"
+			defaultTheme="system"
+			enableSystem
+			disableTransitionOnChange
+		>
+			<AntdConfigProvider {...props} />
 		</NextThemeProvider>
 	);
 }
