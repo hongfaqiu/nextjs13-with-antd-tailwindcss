@@ -11,6 +11,7 @@ This repository solved these problems, and you can use the template to start you
 - Automatic import sorting with [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
 - Dark mode with [next-themes](https://github.com/pacocoursey/next-themes)
 - Icons from [Lucide](https://lucide.dev)
+- Globalization with [next-intl](https://github.com/amannn/next-intl)
 
 ## Problems and solutions
 

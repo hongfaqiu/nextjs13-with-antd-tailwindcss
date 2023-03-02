@@ -2,55 +2,49 @@ import * as React from 'react';
 
 import Link from 'next/link';
 
-import { siteConfig } from '#/config/site-config';
-import { cn } from '#/utils/tailwind';
-
 import Icons from './Icons';
 import { Dropdown } from '@antd';
+import { useTranslations } from 'next-intl';
 
 export interface NavItem {
-	title: string;
+	title: React.ReactNode;
 	href: string;
-	disabled?: boolean;
-	external?: boolean;
 }
 
-interface MainNavProps {
-	items?: NavItem[];
-}
+export function MainNav() {
+  const t = useTranslations();
 
-export function MainNav({ items }: MainNavProps) {
+  const NavItems: NavItem[] = [
+		{
+			title: t('nav.home'),
+			href: '/',
+		},
+	];
+  
 	return (
 		<div className="flex gap-6 md:gap-10">
 			<Link href="/" className="hidden items-center space-x-2 md:flex">
 				<Icons.logo className="h-6 w-6" />
 				<span className="hidden font-bold sm:inline-block">
-					{siteConfig.name}
+					{t('site.title')}
 				</span>
 			</Link>
-			{items?.length ? (
-				<nav className="hidden gap-6 md:flex">
-					{items?.map(
-						(item, index) =>
-							item.href && (
-								<Link
-									key={index}
-									href={item.href}
-									className={cn(
-										'flex items-center text-lg font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-100 sm:text-sm',
-										item.disabled && 'cursor-not-allowed opacity-80',
-									)}
-								>
-									{item.title}
-								</Link>
-							),
-					)}
-				</nav>
-      ) : null}
+			{NavItems?.map(
+        (item, index) =>
+          item.href && (
+            <Link
+              key={index}
+              href={item.href}
+              className="flex items-center font-sans font-bold text-slate-600 hover:text-slate-900 dark:text-slate-100"
+            >
+              {item.title}
+            </Link>
+          ),
+      )}
       <Dropdown
         menu={{
-          items: items?.map(item => ({
-            key: item.title,
+          items: NavItems?.map(item => ({
+            key: item.href,
             label: (<Link href={item.href}>{item.title}</Link>)
           }))
         }}

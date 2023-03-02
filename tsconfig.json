@@ -18,7 +18,7 @@
     "paths": {
       "@antd": ["components/antd"],
       "@antd/*": ["components/antd/*"],
-      "#/*": ["./*"],
+      "@/*": ["./*"],
     },
     "plugins": [
       {

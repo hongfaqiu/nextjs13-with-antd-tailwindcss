@@ -6,9 +6,11 @@ import { Dropdown, MenuProps } from '@antd';
 import { useTheme } from 'next-themes';
 
 import Icons from './Icons';
+import { useTranslations } from 'next-intl';
 
 export default function ThemeToggle() {
-	const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useTheme();
+  const t = useTranslations('theme');
 
 	const onClick: MenuProps['onClick'] = ({ key }) => {
 		setTheme(key);
@@ -19,8 +21,8 @@ export default function ThemeToggle() {
 			key: 'light',
 			label: (
 				<div className="flex items-center">
-					<Icons.SunMedium className="mr-2 h-4 w-4" />
-					<span>亮色</span>
+					<Icons.SunMedium className="mr-2 h-5 w-5 text-orange-500" />
+					<span>{t('light')}</span>
 				</div>
 			),
 		},
@@ -28,8 +30,8 @@ export default function ThemeToggle() {
 			key: 'dark',
 			label: (
 				<div className="flex items-center">
-					<Icons.Moon className="mr-2 h-4 w-4" />
-					<span>暗色</span>
+					<Icons.Moon className="mr-2 h-5 w-5 text-blue-500" />
+					<span>{t('dark')}</span>
 				</div>
 			),
 		},
@@ -37,8 +39,8 @@ export default function ThemeToggle() {
 			key: 'system',
 			label: (
 				<div className="flex items-center">
-					<Icons.Laptop className="mr-2 h-4 w-4" />
-					<span>系统</span>
+					<Icons.Laptop className="stroke-1.5 mr-2 h-5 w-5" />
+					<span>{t('system')}</span>
 				</div>
 			),
 		},
@@ -54,8 +56,8 @@ export default function ThemeToggle() {
 			}}
 		>
 			<button className="btn">
-				<Icons.SunMedium className="rotate-0 scale-100 transition-all hover:text-slate-900 dark:-rotate-90 dark:scale-0 dark:text-slate-400 dark:hover:text-slate-100" />
-				<Icons.Moon className="absolute rotate-90 scale-0 transition-all hover:text-slate-900 dark:rotate-0 dark:scale-100 dark:text-slate-400 dark:hover:text-slate-100" />
+				<Icons.SunMedium className="rotate-0 scale-100 text-orange-500 transition-all dark:-rotate-90 dark:scale-0" />
+				<Icons.Moon className="absolute rotate-90 scale-0 text-blue-500 transition-all dark:rotate-0 dark:scale-100" />
 			</button>
 		</Dropdown>
 	);
