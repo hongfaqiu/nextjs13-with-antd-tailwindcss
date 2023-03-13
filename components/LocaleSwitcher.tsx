@@ -24,7 +24,7 @@ export default function LocaleSwitcher() {
 				})),
 			}}
 		>
-			<div className="btn">
+			<div className="btn" role={'button'} tabIndex={0}>
 				<Icons.Languages className="h-5 w-5" />
 			</div>
 		</Dropdown>
