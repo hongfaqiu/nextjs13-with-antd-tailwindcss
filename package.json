@@ -10,12 +10,6 @@
     "format": "prettier --write \"**/*.{js,ts,tsx,mdx}\" --cache",
     "check": "prettier --check \"**/*.{js,ts,tsx,mdx}\" --cache"
   },
-  "git": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*": "prettier --write \"**/*.{js,ts,tsx,mdx}\" --cache"
-  },
   "dependencies": {
     "@ant-design/cssinjs": "^1.6.1",
     "antd": "^5.2.3",

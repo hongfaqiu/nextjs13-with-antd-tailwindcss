@@ -2,12 +2,13 @@
 
 import { PropsWithChildren, useEffect, useState } from 'react';
 
-import { AntdProvider } from '@antd/AntdProvider';
+import { ConfigProvider, theme } from 'antd';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { useTheme } from 'next-themes';
 
-import { ConfigProvider, theme } from '@/components/antd';
 import { defaultLocale, languages } from '@/i18n';
+
+import { AntdProvider } from './AntdProvider';
 
 export type ProviderProps = PropsWithChildren<{
 	locale: string;

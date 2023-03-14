@@ -13,7 +13,7 @@ import {
 	Switch,
 	TreeSelect,
 	Upload,
-} from '@antd';
+} from 'antd';
 
 import Icons from './Icons';
 

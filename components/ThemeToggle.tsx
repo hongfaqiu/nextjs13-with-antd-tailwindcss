@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { Dropdown, MenuProps } from '@antd';
+import { Dropdown, MenuProps } from 'antd';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 

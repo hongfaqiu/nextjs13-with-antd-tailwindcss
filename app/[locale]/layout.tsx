@@ -4,12 +4,11 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 
+import ThemeProvider from '@/components/Providers';
 import { SiteHeader } from '@/components/SiteHeader';
 import '@/styles/globals.css';
 
 import 'antd/dist/reset.css';
-
-import ThemeProvider from './Providers';
 
 export default async function RootLayout({
 	children,
