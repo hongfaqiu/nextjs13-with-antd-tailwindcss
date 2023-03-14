@@ -19,6 +19,7 @@ Here are some problems and solutions I encountered when I started the project
 
 1. Server side rendering and CSS-in-JS antd5
     <https://github.com/vercel/next.js/issues/44125#issuecomment-1372270391>
+    <https://github.com/ant-design/ant-design/issues/39891#issuecomment-1455336140>
 
 2. Distinguish client/server components when using Next.js 13 app directory
     <https://beta.nextjs.org/docs/rendering/server-and-client-components>

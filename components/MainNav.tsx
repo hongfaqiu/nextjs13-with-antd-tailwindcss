@@ -1,8 +1,10 @@
+'use client';
+
 import * as React from 'react';
 
 import Link from 'next/link';
 
-import { Dropdown } from '@antd';
+import { Dropdown } from 'antd';
 import { useTranslations } from 'next-intl';
 
 import Icons from './Icons';

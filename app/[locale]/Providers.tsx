@@ -1,17 +1,19 @@
 'use client';
 
-import { PropsWithChildren, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
-import { AntdProvider } from '@antd/AntdProvider';
+import { ConfigProvider, theme } from 'antd';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { useTheme } from 'next-themes';
 
-import { ConfigProvider, theme } from '@/components/antd';
 import { defaultLocale, languages } from '@/i18n';
 
 export type ProviderProps = PropsWithChildren<{
 	locale: string;
 }>;
+
+// suppress useLayoutEffect warnings when running outside a browser
+if (!process.browser) React.useLayoutEffect = React.useEffect;
 
 export function AntdConfigProvider({ children, locale }: ProviderProps) {
 	const { theme: nowTheme } = useTheme();
@@ -24,7 +26,7 @@ export function AntdConfigProvider({ children, locale }: ProviderProps) {
 					nowTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
 			}}
 		>
-			<AntdProvider>{children}</AntdProvider>
+			{children}
 		</ConfigProvider>
 	);
 }
@@ -37,8 +39,9 @@ export default function Providers(props: ProviderProps) {
 		setMounted(true);
 	}, []);
 
-	if (!mounted) {
-		return <AntdConfigProvider {...props} />;
+  if (!mounted) {
+    // or your loading component
+		return null;
 	}
 
 	return (

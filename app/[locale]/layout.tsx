@@ -7,8 +7,6 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { SiteHeader } from '@/components/SiteHeader';
 import '@/styles/globals.css';
 
-import 'antd/dist/reset.css';
-
 import ThemeProvider from './Providers';
 
 export default async function RootLayout({
