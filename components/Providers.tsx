@@ -38,9 +38,13 @@ export default function Providers(props: ProviderProps) {
 		setMounted(true);
 	}, []);
 
-	if (!mounted) {
-    // show your loading page
-		return null;
+  if (!mounted) {
+    // use your loading page
+    return (
+      <div className="hidden">
+        {props.children}
+      </div>
+    );
 	}
 
 	return (
