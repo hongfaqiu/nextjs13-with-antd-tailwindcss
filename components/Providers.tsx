@@ -39,7 +39,8 @@ export default function Providers(props: ProviderProps) {
 	}, []);
 
 	if (!mounted) {
-		return <AntdConfigProvider {...props} />;
+    // show your loading page
+		return null;
 	}
 
 	return (
