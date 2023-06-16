@@ -15,27 +15,27 @@ dayjs.locale('zh-cn');
 if (!process.browser) React.useLayoutEffect = React.useEffect;
 
 export function AntdProvider({ children }: { children: React.ReactNode }) {
-	const [cache] = useState(() => createCache());
+  const [cache] = useState(() => createCache());
 
-	const render = <>{children}</>;
+  const render = <>{children}</>;
 
-	useServerInsertedHTML(() => {
-		return (
-			<script
-				dangerouslySetInnerHTML={{
-					__html: `</script>${extractStyle(cache)}<script>`,
-				}}
-			/>
-		);
-	});
+  useServerInsertedHTML(() => {
+    return (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `</script>${extractStyle(cache)}<script>`,
+        }}
+      />
+    );
+  });
 
-	if (typeof window !== 'undefined') {
-		return render;
-	}
+  if (typeof window !== 'undefined') {
+    return render;
+  }
 
-	return (
-		<StyleProvider hashPriority="high" cache={cache}>
-			{render}
-		</StyleProvider>
-	);
+  return (
+    <StyleProvider hashPriority="high" cache={cache}>
+      {render}
+    </StyleProvider>
+  );
 }
